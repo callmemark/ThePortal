@@ -25,6 +25,8 @@ Route::controller(UserDataController::class) -> group(function(){
 
     Route::post('/create', 'create') -> name('user.create');
     Route::post('/login/user', 'signin') -> name('user.signin');
+    Route::post('/user/{user_data}/update/email', 'updateEmail') -> name('user.update.email');
+    Route::post('/user/{user_data}/update/password', 'updatePassword') -> name('user.update.password');
 
     Route::get('/user/lougout', 'logout') -> name('user.logout');
     Route::get('/create/account', 'signup') -> name('signup.form');
@@ -35,7 +37,7 @@ Route::controller(UserDataController::class) -> group(function(){
 
 Route::controller(StudentRecordController::class) -> group(function(){
 
-    Route::get('/studet/list', 'getAll') -> name('student.list');
+    Route::get('/studet/list', 'getAll') -> name('student.list') -> middleware('role');
     Route::get('/student/{student}/edit', 'getedit') -> name('student.edit');
     Route::get('/student/register/form', 'registerForm') -> name('student.register.form');
 

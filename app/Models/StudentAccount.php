@@ -4,25 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
-
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
-class UserData extends Authenticatable
+
+class StudentAccount extends Authenticatable
 {
     use HasFactory, HasFactory, Notifiable;
 
-    protected $table = 'userdata';
-    
+    protected $table = 'student_accounts';
+
     protected $fillable = [
-        'firstname',
-        'middlename',
-        'lastname',
+        'studentid',
         'email',
         'password',
-        'role'
+        'role',
     ];
 }

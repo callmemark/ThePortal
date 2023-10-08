@@ -23,7 +23,7 @@
 <div class='container-fluid'>
 	<div class='row'>
 		<div class='col-md-6 d-flex flex-column align-items-center justify-content-center'>
-			<p id='form-headline'><span id='sub-for4m-headline'>school </span><br> Portal</p>
+			<p id='form-headline' class='text-color-main'><span id='sub-for4m-headline'>The </span> Portal</p>
 		</div>
 
 		<div class='col-md-6 signin-page d-flex flex-column align-items-center justify-content-center'>
@@ -32,16 +32,16 @@
 				
 				@if($errors -> any())
 					@foreach($errors -> all() as $err)
-						<p>{{$err}}</p>
+						<p class='text-color-error'>{{$err}}</p>
 					@endforeach
 				@endif
 
 				@if(session()->has('success'))
-					<p>{{session('success')}}</p>
+					<p >{{session('success')}}</p>
 				@endif
 
 				@if(session()->has('error'))
-					<p>{{session('error')}}</p>
+					<p class='text-color-error'>{{session('error')}}</p>
 				@endif
 				
 			</div>
@@ -55,7 +55,14 @@
 				<label class='form-label'>Password</label>
 				<input type='password' class='form-control' name='password' required>
 
-				<button class='btn btn-dark mt-3' type='submit'>SignIn</button>
+				<label class='form-label'>Account Type</label>
+
+				<select class="form-select" aria-label="account-type" name='account-type'>
+					<option value='student' selected>Student</option>
+					<option value="admin">Admin</option>
+				</select>
+
+				<button class='btn btn-themed mt-3' type='submit'>SignIn</button>
 				<button class='btn btn-secondary mt-3' type='link'>
 				<a href={{route('signup.form')}} /> SignUp </button>
 			</form>

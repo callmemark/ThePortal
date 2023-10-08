@@ -10,6 +10,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		z-index: 1;
 	}
 	#logo{
 		color: #338a7e;
@@ -21,7 +22,7 @@
 
 <div id='sidebar'>
 
-	<button onclick='window.location="{{route('signin.form')}}"' class='btn right hint--rounded hint--bounce' data-hint='Dashboard'>
+	<button onclick='window.location="{{route('dashboard')}}"' class='btn right hint--rounded hint--bounce' data-hint='Dashboard'>
 		<span class="material-symbols-outlined">
 			dashboard
 		</span>

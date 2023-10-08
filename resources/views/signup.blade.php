@@ -33,7 +33,7 @@
 		</div>
 
 		<div class='col-md-6 signin-page d-flex flex-column align-items-center justify-content-center'>
-			<h4>SignIn</h4>
+			<h4>SignUp</h4>
 
 			
 				@foreach($errors as $err)
@@ -73,7 +73,7 @@
 
 				<div class="form-check">
 					<label class='form-label'>Is Admin</label>
-				 	<input class='form-check-input' type='checkbox' value='true' id='defaultCheck1' name='isadmin'>
+				 	<input class='form-check-input' type='checkbox' value='true' id='defaultCheck1' name='role'>
 				</div>
 
 				<button class='btn btn-dark mt-3' type='submit'>Create Account</button>

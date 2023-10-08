@@ -39,6 +39,7 @@
 		font-size: 3rem;
 		font-weight: bold;
 		margin-top: 2rem;
+		color: #c000eb;
 	}
 	.heading-secondary{
 		font-size: 1.5rem;
@@ -49,6 +50,33 @@
 		padding: 1.5rem;
 		margin: 1rem;
 		border-radius: 14px;
+		border: none;
+	}
+	.occupy-height{
+		height: 100%;
+	}
+	.flex-center-all-col{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.text-color-main{
+		color: #c000eb;
+	}
+	.text-color-error{
+		color: #ff0000;
+	}
+	.bg-color-main{
+		background-color: #c000eb;
+	}
+	.btn-themed{
+		background-color: #c000eb;
+		color: white;
+		font-weight: bold;
+	}
+	.btn-accent{
+		background-color: #8c00ff;
+		color: white;
 	}
 </style>
 
