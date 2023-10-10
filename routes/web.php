@@ -44,6 +44,7 @@ Route::controller(StudentRecordController::class) -> group(function(){
     Route::post('/register/student', 'create') -> name('student.create');
     Route::post('/student/{student}/update', 'edit') -> name('student.update');
     Route::post('/student/{student}/delete', 'delete') -> name('student.delete');
+    Route::post('/student/{student}/{subjectid}/unenroll', 'unenroll') -> name('student.unenroll');
     
 });
 

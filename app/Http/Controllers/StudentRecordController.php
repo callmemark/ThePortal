@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\StudentAccount;
 use App\Models\StudentRecord;
 use App\Models\Subject;
+use App\Models\EnrollRecord;
 
 
 
@@ -38,6 +40,10 @@ class StudentRecordController extends Controller
             'password' => Hash::make(strtolower($validated_data['lastname'])),
             'role' => 'student',
         ];
+
+        if(!$this -> isEmailUnique($student_account['email'])){
+            return redirect(route('student.register.form')) -> with('error', 'Email already exist in the database');
+        }
 
         $new_student_account = StudentAccount::create($student_account);
         if(!$new_student_account){
@@ -75,8 +81,14 @@ class StudentRecordController extends Controller
 
     public function getedit(Request $request, StudentRecord $student){
         $subjects = Subject::all();
-        return view('student-edit', ['student' => $student, 'subjects' => $subjects]);
+        $enrolled = DB::table('student_records')
+                                    -> join('enrollment_data', 'student_records.id', '=', 'enrollment_data.studentid')
+                                    -> join('subjects', 'enrollment_data.subjectid', '=', 'subjects.id')
+                                    -> get();
+
+        return view('student-edit', ['student' => $student, 'subjects' => $subjects, 'enrolled' => $enrolled]);
     }
+
 
 
 
@@ -87,7 +99,29 @@ class StudentRecordController extends Controller
 
 
 
+    public function unenroll(Request $request, StudentRecord $student,  $subjectid){
+        DB::table('enrollment_data') 
+                    -> where('studentid', $student -> id) 
+                    -> where('subjectid', $subjectid)
+                    -> delete();
+
+        return $this -> getedit($request, $student);
+    }
+
+
+
     public function registerForm(){
         return view('student-register');
+    }
+
+
+    private function isEmailUnique($email){
+        $email_instance = StudentAccount::where('email', $email) -> get() -> first();
+
+        if($email_instance){
+            return false;
+        } else {
+            return true;
+        }
     }
 }

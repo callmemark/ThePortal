@@ -92,6 +92,34 @@
 			</div>
 		</div>
 	</div>
+
+	<div class='row'>
+		<div class='col-md-12'>
+			<p class='heading-secondary text-color-main'>Enrolled Subjects</p>
+			<table class='table'>
+				<tr>
+					<th>Subject</th>
+					<th>Grade</th>
+					<th>Action</th>
+				</tr>
+				@foreach($enrolled as $subs_enrolled)
+				<tr>
+					
+					<td>{{$subs_enrolled -> subject}}</td>
+					<td>{{$subs_enrolled -> grade}}</td>
+					<td>
+						<form action={{route('student.unenroll', ['student' => $student, 'subjectid' => $subs_enrolled -> id])}} method='post'>
+							@csrf
+							@method('post')
+							<button class='btn btn-danger' tpe='submit'>Remove</button>
+						</form>
+					</td>
+					
+				</tr>
+				@endforeach
+			</table>
+		</div>
+	</div>
 </div>
 
 @include('components/footer')

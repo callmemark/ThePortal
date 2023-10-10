@@ -7,7 +7,7 @@
 	}
 	#form-headline{
 		font-weight: bolder;
-		font-size: 7rem;
+		font-size: 5rem;
 	}
 	#sub-for4m-headline{
 		font-weight: bolder;
@@ -17,17 +17,20 @@
 		text-decoration: none;
 		color: white;
 	}
-
+	#landing-page-cover{
+		width: 70%;
+	}
 </style>
 
 <div class='container-fluid'>
 	<div class='row'>
 		<div class='col-md-6 d-flex flex-column align-items-center justify-content-center'>
+			<img src={{asset("images/landing_page_cover.svg")}} alt='Landing page cover' id='landing-page-cover'>
 			<p id='form-headline' class='text-color-main'><span id='sub-for4m-headline'>The </span> Portal</p>
 		</div>
 
 		<div class='col-md-6 signin-page d-flex flex-column align-items-center justify-content-center'>
-			<h4>SignIn</h4>
+			<h4 class='text-color-main'>SignIn</h4>
 			<div class='err_handler'>
 				
 				@if($errors -> any())

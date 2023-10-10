@@ -31,15 +31,6 @@ class UserDataController extends Controller
         } 
 
         $data['role'] = 'admin';
-        // verify if new user have admin access
-        /*
-        $is_admin_checked = $request -> input('role');
-        if($is_admin_checked){
-            $data['role'] = 'admin';
-        } else {
-            $data['role'] = 'student';
-        }
-        */
         
         // Hashed password with Bcrypt algorithm
         $hashed = Hash::make($request -> password);
@@ -82,22 +73,6 @@ class UserDataController extends Controller
         } else {
             return redirect(route('signin.form')) -> with('error', 'undefined Accont type encountered');
         }
-
-
-        /**
-        // Attempt login
-        $user = UserData::where('email', $request -> email) -> get() -> first();
-        $hashedpassword = $user -> pluck('password')[0];
-
-        //verify password 
-        if(auth() -> attempt($validated_data)){
-            $request->session()->regenerate();
-            $request -> session() -> put('user_id', $user -> pluck('id')[0]);
-            return redirect(route('dashboard')); 
-        }
-        
-        return view('signin') -> with('error', 'No account found');
-        */
     }
 
 
@@ -105,6 +80,7 @@ class UserDataController extends Controller
         if(auth() -> guard('admin') -> attempt($validated_data)){
             $request->session()->regenerate();
             session(['role' => 'admin']);
+
             return redirect(route('dashboard'));
         }
 

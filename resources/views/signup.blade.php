@@ -71,11 +71,6 @@
 				<label class='form-label'>Password</label>
 				<input type='password' class='form-control' name='password' required>
 
-				<div class="form-check">
-					<label class='form-label'>Is Admin</label>
-				 	<input class='form-check-input' type='checkbox' value='true' id='defaultCheck1' name='role'>
-				</div>
-
 				<button class='btn btn-dark mt-3' type='submit'>Create Account</button>
 				<button class='btn btn-secondary mt-3' type='link'>
 				<a href={{route('signin.form')}} /> SignIn </button>

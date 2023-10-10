@@ -21,9 +21,15 @@
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 	<title>Portal</title>
 
 </head>
+
+
+
+
 
 <style type="text/css">
 	body{
@@ -39,7 +45,7 @@
 		font-size: 3rem;
 		font-weight: bold;
 		margin-top: 2rem;
-		color: #c000eb;
+		color: #FF7F00;
 	}
 	.heading-secondary{
 		font-size: 1.5rem;
@@ -61,22 +67,27 @@
 		justify-content: center;
 	}
 	.text-color-main{
-		color: #c000eb;
+		color: #FF7F00;
 	}
 	.text-color-error{
 		color: #ff0000;
 	}
 	.bg-color-main{
-		background-color: #c000eb;
+		background-color: #FF7F00;
 	}
 	.btn-themed{
-		background-color: #c000eb;
+		background-color: #FF7F00;
 		color: white;
 		font-weight: bold;
 	}
 	.btn-accent{
 		background-color: #8c00ff;
 		color: white;
+	}
+	@media only screen and (max-width: 800px){
+		.mobile-page{
+			margin-left: 70px;
+		}
 	}
 </style>
 
