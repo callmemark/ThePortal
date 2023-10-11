@@ -48,15 +48,15 @@
 					
 				</select>
 				
-				<button type='submit' class='btn btn-dark mt-5'>Update Student Data</button>
+				<button type='submit' class='btn btn-themed mt-5'>Update Student Data</button>
 			</form>
 		</div>
 
 		<div class='col-md-4'>
 
 			<div class="card mt-5 lift">
-			  <h5 class="card-header">Cannot Be Undone</h5>
-			  <div class="card-body">
+			  <h5 class="card-header text-color-theme background-theme">Cannot Be Undone</h5>
+			  <div class="card-body background-theme">
 			    <form action={{route('student.delete', ['student' => $student])}} method='post'>
 			    	@csrf
 			    	@method('post')
@@ -66,8 +66,8 @@
 			</div>
 
 			<div class="card mt-3 lift">
-			  <h5 class="card-header">Enroll To Subjects</h5>
-			  <div class="card-body">
+			  <h5 class="card-header background-theme text-color-theme">Enroll To Subjects</h5>
+			  <div class="card-body background-theme">
 			    <form action={{route('enrollement.create', ['student' => $student])}} method='post'>
 			    	@csrf
 			    	@method('post')
@@ -79,14 +79,14 @@
 						@endforeach
 					</select>
 
-					@foreach($errors as $err)
-						<p class='error'>{{$err}}</p>
+					@foreach($errors -> all() as $err)
+						<p class='text-error'>{{$err}}</p>
 					@endforeach
 
 					@if(session() -> has('error'))
-						<p class='error'>{{session()->get('error')}}</p>
+						<p class='text-error'>{{session()->get('error')}}</p>
 					@endif
-					<button type='submit' class='btn btn-dark mt-3'>Enroll to selected subject</button>
+					<button type='submit' class='btn btn-themed mt-3'>Enroll to selected subject</button>
 				</form>
 			  </div>
 			</div>
@@ -96,15 +96,14 @@
 	<div class='row'>
 		<div class='col-md-12'>
 			<p class='heading-secondary text-color-main'>Enrolled Subjects</p>
-			<table class='table'>
+			<table class='my-table'>
 				<tr>
 					<th>Subject</th>
 					<th>Grade</th>
-					<th>Action</th>
+					<th>Remove</th>
 				</tr>
 				@foreach($enrolled as $subs_enrolled)
-				<tr>
-					
+				<tr class='lift'>
 					<td>{{$subs_enrolled -> subject}}</td>
 					<td>{{$subs_enrolled -> grade}}</td>
 					<td>
@@ -114,7 +113,6 @@
 							<button class='btn btn-danger' tpe='submit'>Remove</button>
 						</form>
 					</td>
-					
 				</tr>
 				@endforeach
 			</table>

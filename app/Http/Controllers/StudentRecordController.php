@@ -81,14 +81,14 @@ class StudentRecordController extends Controller
 
     public function getedit(Request $request, StudentRecord $student){
         $subjects = Subject::all();
-        $enrolled = DB::table('student_records')
-                                    -> join('enrollment_data', 'student_records.id', '=', 'enrollment_data.studentid')
-                                    -> join('subjects', 'enrollment_data.subjectid', '=', 'subjects.id')
-                                    -> get();
+        $enrolled = DB::table('student_records') 
+                    -> join('enrollment_data', 'student_records.id', '=', 'enrollment_data.studentid')
+                    -> join('subjects', 'enrollment_data.subjectid', '=', 'subjects.id')
+                    -> where('studentid', $student -> id)
+                    -> get();
 
         return view('student-edit', ['student' => $student, 'subjects' => $subjects, 'enrolled' => $enrolled]);
     }
-
 
 
 
@@ -115,6 +115,19 @@ class StudentRecordController extends Controller
     }
 
 
+
+    public function getGrade(){
+       $enrolled = DB::table('student_records')
+                    -> join('enrollment_data', 'student_records.id', '=', 'enrollment_data.studentid')
+                    -> join('subjects', 'enrollment_data.subjectid', '=', 'subjects.id')
+                    -> where('studentid', auth() -> guard('student') ->user() -> studentid)
+                    -> get();
+
+        return view('student-grade-view', ['enrolled' => $enrolled]);
+    }
+
+
+
     private function isEmailUnique($email){
         $email_instance = StudentAccount::where('email', $email) -> get() -> first();
 
@@ -124,4 +137,5 @@ class StudentRecordController extends Controller
             return true;
         }
     }
+
 }

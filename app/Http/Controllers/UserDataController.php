@@ -80,12 +80,9 @@ class UserDataController extends Controller
         if(auth() -> guard('admin') -> attempt($validated_data)){
             $request->session()->regenerate();
             session(['role' => 'admin']);
-
             return redirect(route('dashboard'));
         }
-
         return redirect(route('signin.form')) -> with('error', 'No account found');
-        //return view('signin') -> with('error', 'No account found');
     }
 
 
@@ -97,7 +94,6 @@ class UserDataController extends Controller
             return redirect(route('dashboard'));
         }
         return redirect(route('signin.form')) -> with('error', 'No account found');
-        //return view('signin') -> with('error', 'No account found');
     }
 
 

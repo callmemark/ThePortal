@@ -10,12 +10,13 @@
 @include('components/header')
 @include('components/sidebar')
 
+
 <div class='mobile-page'>
 	<div class='container'>
 		<div class='row'>
 			<div class='col-md-12'>
 				<p class='heading-title'>User Dashboard</p>
-				<p id="user-name">{{$user_data -> firstname}} {{$user_data -> middlename}} {{$user_data -> lastname}}</p>
+				<p id="user-name">User Name: {{$user_data -> firstname}} {{$user_data -> middlename}} {{$user_data -> lastname}}</p>
 				<p id='permission-name'>Permission: {{$user_data -> role}}</p>
 			</div>
 		</div>

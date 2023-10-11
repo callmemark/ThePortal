@@ -8,7 +8,7 @@
 		<div class='col-md-12'>
 
 			<p class='heading-title'>Student List</p>
-			<table class='table'>
+			<table class='my-table'>
 				<tr>
 					<th>Name</th>
 					<th>Age</th>
@@ -25,7 +25,7 @@
 							<form action='{{route('student.edit', ['student' => $student])}}' method='get'>
 								@csrf
 								@method('get')
-								<button class='btn btn-dark' type='submit'>Edit</button>
+								<button class='btn btn-themed' type='submit'>Edit</button>
 							</form>
 						</td>
 					</tr>

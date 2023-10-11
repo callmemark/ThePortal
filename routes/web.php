@@ -37,29 +37,30 @@ Route::controller(UserDataController::class) -> group(function(){
 
 Route::controller(StudentRecordController::class) -> group(function(){
 
-    Route::get('/studet/list', 'getAll') -> name('student.list') -> middleware('role');
-    Route::get('/student/{student}/edit', 'getedit') -> name('student.edit');
-    Route::get('/student/register/form', 'registerForm') -> name('student.register.form');
+    Route::get('/studet/list', 'getAll') -> name('student.list') -> middleware('admin');
+    Route::get('/student/{student}/edit', 'getedit') -> name('student.edit') -> middleware('admin');;
+    Route::get('/student/register/form', 'registerForm') -> name('student.register.form') -> middleware('admin');
+    Route::get('/studen/grade', 'getGrade') -> name('student.grade');
 
-    Route::post('/register/student', 'create') -> name('student.create');
-    Route::post('/student/{student}/update', 'edit') -> name('student.update');
-    Route::post('/student/{student}/delete', 'delete') -> name('student.delete');
-    Route::post('/student/{student}/{subjectid}/unenroll', 'unenroll') -> name('student.unenroll');
+    Route::post('/register/student', 'create') -> name('student.create') -> middleware('admin');;
+    Route::post('/student/{student}/update', 'edit') -> name('student.update') -> middleware('admin');;
+    Route::post('/student/{student}/delete', 'delete') -> name('student.delete') -> middleware('admin');;
+    Route::post('/student/{student}/{subjectid}/unenroll', 'unenroll') -> name('student.unenroll') -> middleware('admin');
     
 });
 
 
 Route::controller(SubjectController::class) -> group(function(){
 
-    Route::get('/subjects', 'get') -> name('subject.form');
-    Route::post('/subjects/new', 'create') -> name('subject.create');
-    Route::post('/suject/{subject}/delete', 'delete') -> name('subject.delete');
+    Route::get('/subjects', 'get') -> name('subject.form') -> middleware('admin');;
+    Route::post('/subjects/new', 'create') -> name('subject.create') -> middleware('admin');;
+    Route::post('/suject/{subject}/delete', 'delete') -> name('subject.delete') -> middleware('admin');;
     
 });
 
 
 Route::controller(EnrollRecordController::class) -> group(function(){
 
-    Route::post('/enrollment/create/{student}', 'create') -> name('enrollement.create');
+    Route::post('/enrollment/create/{student}', 'create') -> name('enrollement.create') -> middleware('admin');;
 
 });

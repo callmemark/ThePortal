@@ -31,7 +31,7 @@
 
 
 
-	<button onclick='window.location="{{route('dashboard')}}"' class='btn right hint--rounded hint--bounce' data-hint='Dashboard'>
+	<button onclick='window.location="{{route('dashboard')}}"' class='btn right hint--rounded hint--bounce text-color-main' data-hint='Dashboard'>
 		<span class="material-symbols-outlined ">
 			dashboard
 		</span>
@@ -40,7 +40,7 @@
 
 
 	@if($role == 'student')
-	<button onclick='#' class='btn right hint--rounded hint--bounce' data-hint='show grades'>
+	<button onclick='window.location="{{route('student.grade')}}"' class='btn right hint--rounded hint--bounce text-color-main' data-hint='show grades'>
 		<span class="material-symbols-outlined">
 			table_rows
 		</span>
@@ -50,7 +50,7 @@
 
 
 	@if($role == 'admin')
-	<button onclick='window.location="{{route('student.list')}}"' class='btn right hint--rounded hint--bounce' data-hint='Student List'>
+	<button onclick='window.location="{{route('student.list')}}"' class='btn right hint--rounded hint--bounce text-color-main' data-hint='Student List'>
 		<span class="material-symbols-outlined">
 			groups
 		</span>
@@ -59,7 +59,7 @@
 	@endif
 
 	@if($role == 'admin')
-	<button onclick='window.location="{{route('student.register.form')}}"' class='btn right hint--rounded hint--bounce' data-hint='Register Student'>
+	<button onclick='window.location="{{route('student.register.form')}}"' class='btn right hint--rounded hint--bounce text-color-main' data-hint='Register Student'>
 		<span class="material-symbols-outlined">
 			group_add
 		</span>
@@ -68,7 +68,7 @@
 	@endif
 
 	@if($role == 'admin')
-	<button onclick='window.location="{{route('subject.form')}}"' class='btn right hint--rounded hint--bounce' data-hint='Add Subject'>
+	<button onclick='window.location="{{route('subject.form')}}"' class='btn right hint--rounded hint--bounce text-color-main' data-hint='Add Subject'>
 		<span class="material-symbols-outlined">
 			add_notes
 		</span>
@@ -76,7 +76,7 @@
 	</button>
 	@endif
 
-	<button onclick='window.location="{{route('user.logout')}}"' class='btn right hint--rounded hint--bounce' data-hint='Lougout'>
+	<button onclick='window.location="{{route('user.logout')}}"' class='btn right hint--rounded hint--bounce text-color-main' data-hint='Lougout'>
 		<span class="material-symbols-outlined">
 			logout
 		</span>
