@@ -34,6 +34,7 @@ class SubjectController extends Controller
     }
 
 
+
     public function get(){
         // Pagination will be added
         $subjects_list = Subject::all();
@@ -41,8 +42,29 @@ class SubjectController extends Controller
     }
 
 
+
     public function delete(Subject $subject){
         $subject -> delete();
         return redirect(route('subject.form')) -> with('success', 'A subject was deleted'); 
+    }
+
+
+
+    public function update(Subject $subject, Request $request){
+        $validated_data = $request -> validate([
+            'subject' => 'string|required',
+            'unit' => 'integer|required'
+        ]);
+
+        $update_query = $subject -> update($validated_data);
+        if(!$update_query){
+            return $this -> get();
+        }
+        return $this -> get();
+    }
+
+
+    public function edit(Subject $subject){
+        return view('subject-edit', ['subject' => $subject]);
     }
 }

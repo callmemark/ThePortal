@@ -40,7 +40,7 @@
 					<p class='success'>{{session() -> get('success')}}</p>
 				@endif
 
-				<button class='btn btn-dark mt-2' type='submit'>Add New Subject</button>
+				<button class='btn btn-themed mt-2' type='submit'>Add New Subject</button>
 			</form>
 		</div>
 	</div>
@@ -48,7 +48,7 @@
 	<div class='row'>
 		<div class='col-md-12'>
 			<p class='heading-secondary'>Subject List</p>
-			<table class='table' id='subject-table'>
+			<table class='my-table' id='subject-table'>
 				<tr>
 					<th>Subject</th>
 					<th>Unit</th>
@@ -60,10 +60,10 @@
 						<td>{{$subject -> subject}}</td>
 						<td>{{$subject -> unit}}</td>
 						<td>
-							<form action='#' method='post'>
+							<form action={{route('subject.edit', ['subject' => $subject])}} method='get'>
 								@csrf
-								@method('post')
-								<button class='btn btn-secondary'>Edit</button>
+								@method('get')
+								<button class='btn btn-themed'>Edit</button>
 							</form>
 						</td>
 						<td>

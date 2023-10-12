@@ -23,13 +23,16 @@
 		text-decoration: none;
 		color: white;
 	}
-
+	#landing-page-cover{
+		width: 70%;
+	}
 </style>
 
 <div class='container'>
 	<div class='row'>
 		<div class='col-md-6 d-flex flex-column align-items-center justify-content-center'>
-			<p id='form-headline'><span id='sub-for4m-headline'>school </span><br> Portal</p>
+			<img src={{asset("images/landing_page_cover.svg")}} alt='Landing page cover' id='landing-page-cover'>
+			<p id='form-headline' class='text-color-main'><span id='sub-for4m-headline'>The </span> Portal</p>
 		</div>
 
 		<div class='col-md-6 signin-page d-flex flex-column align-items-center justify-content-center'>
@@ -71,7 +74,14 @@
 				<label class='form-label'>Password</label>
 				<input type='password' class='form-control' name='password' required>
 
-				<button class='btn btn-dark mt-3' type='submit'>Create Account</button>
+				<label class='form-label'>Account Type</label>
+				<select class="form-select" aria-label="account-type" name='account-type'>
+					<option value='student' selected>Student</option>
+					<option value="admin">teacher</option>
+					<option value="admin">Admin</option>
+				</select>
+
+				<button class='btn btn-themed mt-3' type='submit'>Create Account</button>
 				<button class='btn btn-secondary mt-3' type='link'>
 				<a href={{route('signin.form')}} /> SignIn </button>
 			</form>

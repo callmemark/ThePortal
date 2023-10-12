@@ -22,6 +22,7 @@ class UserDataController extends Controller
             'lastname' => 'required|string', 
             'email' => 'required|string',
             'password' => 'required|string',
+            'role' => 'string|required',
         ]);
 
         // check if email already exist
@@ -30,7 +31,11 @@ class UserDataController extends Controller
             return redirect(route('signup.form')) -> with('error', 'Email already exist');
         } 
 
-        $data['role'] = 'admin';
+        $roles = ['admin', 'teacher', 'student'];
+
+        if(!in_array($data['role'], $roles)){
+            return redirect(route('signup.form')) -> with('error', 'Selected role is not recognized');
+        }
         
         // Hashed password with Bcrypt algorithm
         $hashed = Hash::make($request -> password);

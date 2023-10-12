@@ -54,7 +54,7 @@
 					<option value="Female">Female</option>
 				</select>
 				
-				<button type='submit' class='btn btn-dark mt-3'>Register</button>
+				<button type='submit' class='btn btn-themed mt-3'>Register</button>
 			</form>
 		</div>
 	</div>
