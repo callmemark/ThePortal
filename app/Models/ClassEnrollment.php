@@ -3,16 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class StudentAccount extends Authenticatable
+class ClassEnrollment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'student_register_id',
-        'school_email',
-        'password',
-        'role',
+        'instructor_subject_mapping_id',
+        'admin_creator_id',
+        'classroom',
     ];
 }

@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('enrollment_data', function(Blueprint $table){
+        Schema::create('admin_accounts', function(Blueprint $table){
             $table -> id();
-            $table -> foreignId('studentid');
-            $table -> foreignId('subjectid');
-            $table -> integer('grade');
+            $table -> foreignId('admin_register_id');
+            $table -> string('school_email');
+            $table -> string('password');
+            $table -> string('role');
+            $table -> rememberToken();
             $table -> timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('enrollment_data');
+        Schema::drop('admin_accounts');
     }
 };

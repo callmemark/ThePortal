@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student_records', function(Blueprint $table){
+        Schema::create('student_grades', function(Blueprint $table){
             $table -> id();
-            $table -> string('firstname');
-            $table -> string('middlename');
-            $table -> string('lastname');
-            $table -> integer('age');
-            $table -> string('gender');
+            $table -> foreignId('class_enrollment_id');
+            $table -> float('grade', 8, 2);
+            $table -> foreignId('updated_by');
+            $table -> string('updated_by_role');
             $table -> timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('student_records');
+        Schema::drop('student_grades');
     }
 };

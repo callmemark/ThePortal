@@ -64,16 +64,13 @@ class UserDataController extends Controller
         $validated_data = $request -> validate([
             'email' => 'string|required',
             'password' => 'string|required',
-        ]);
-
-        $acc_type_validation = $request -> validate([
-            'account-type' => 'string|required',
+            'role' => 'string|required',
         ]);
 
 
-        if($acc_type_validation['account-type'] == 'admin'){
-            return $this -> signinAdmin($request, $validated_data);
-        } else if($acc_type_validation['account-type'] == 'student'){
+        if($validated_data['role'] == 'admin' or $validated_data['role'] == 'teacher'){
+            return $this -> signinAdmin($request, $validated_data, $validated_data['role']);
+        } else if($validated_data['role'] == 'student'){
             return $this -> signinStudent($request, $validated_data);
         } else {
             return redirect(route('signin.form')) -> with('error', 'undefined Accont type encountered');
@@ -81,10 +78,17 @@ class UserDataController extends Controller
     }
 
 
-    public function signinAdmin($request, $validated_data){
+    public function signinAdmin($request, $validated_data, $role){
         if(auth() -> guard('admin') -> attempt($validated_data)){
             $request->session()->regenerate();
-            session(['role' => 'admin']);
+
+            // Please refactor this PLEASEEEE MARK
+            if($role == 'admin'){
+                session(['role' => 'admin']);
+            } else if($role == 'teacher'){
+                session(['role' => 'teacher']);
+            } 
+            
             return redirect(route('dashboard'));
         }
         return redirect(route('signin.form')) -> with('error', 'No account found');

@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function(Blueprint $table){
+        Schema::create('student_accounts', function(Blueprint $table){
             $table -> id();
-            $table -> string('subject');
-            $table -> float('unit', 8, 2);
+            $table -> foreignId('student_register_id');
+            $table -> string('school_email');
+            $table -> string('password');
+            $table -> string('role');
+            $table -> rememberToken();
             $table -> timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('subjects');
+        Schema::drop('student_accounts');
     }
 };

@@ -5,15 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class StudentRecord extends Model
+class ParentRegister extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'firstname',
-        'middlename',
-        'lastname',
+        'first_name',
+        'middle_name',
+        'last_name',
         'age',
+        'birthdate',
         'gender',
+        'home_address',
+        'contact_number',
+        'personal_email',
     ];
 }

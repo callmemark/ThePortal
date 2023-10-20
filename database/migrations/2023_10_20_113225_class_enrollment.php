@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('userdata', function(Blueprint $table){
+        Schema::create('class_enrollments', function(Blueprint $table){
             $table -> id();
-            $table -> string('firstname');
-            $table -> string('middlename');
-            $table -> string('lastname');
-            $table -> string('email') -> unique();
-            $table -> string('password');
-            $table -> string('role');
-            $table -> rememberToken();
+            $table -> foreignId('student_register_id');
+            $table -> foreignId('instructor_subject_mapping_id');
+            $table -> foreignId('admin_creator_id');
+            $table -> string('classroom');
             $table -> timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userdata');
+        Schema::drop('class_enrollments');
     }
 };

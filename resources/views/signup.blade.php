@@ -38,15 +38,17 @@
 		<div class='col-md-6 signin-page d-flex flex-column align-items-center justify-content-center'>
 			<h4>SignUp</h4>
 
-			
-				@foreach($errors as $err)
-					<div class="card">
-						  <h5 class="card-header">Errors</h5>
-						  <div class="card-body">
-							<p class="card-text error">{{$err}}</p>
+				
+				@if($errors -> any())
+					@foreach($errors -> all() as $err)
+						<div class="card">
+							  <h5 class="card-header">Errors</h5>
+							  <div class="card-body">
+								<p class="card-text error">{{$err}}</p>
+							</div>
 						</div>
-					</div>
-				@endforeach
+					@endforeach
+				@endif
 
 				@if(session() -> has('error'))
 					<p class='error'>
@@ -75,9 +77,9 @@
 				<input type='password' class='form-control' name='password' required>
 
 				<label class='form-label'>Account Type</label>
-				<select class="form-select" aria-label="account-type" name='account-type'>
+				<select class="form-select" aria-label="role" name='role'>
 					<option value='student' selected>Student</option>
-					<option value="admin">teacher</option>
+					<option value="teacher">teacher</option>
 					<option value="admin">Admin</option>
 				</select>
 

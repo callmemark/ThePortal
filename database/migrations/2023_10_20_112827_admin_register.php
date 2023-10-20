@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('student_accounts', function(Blueprint $table){
+        Schema::create('admin_registers', function(Blueprint $table){
             $table -> id();
-            $table -> foreignId('studentid');
-            $table -> string('email') -> unique();
-            $table -> string('password');
-            $table -> string('role');
-            $table -> rememberToken();
+            $table -> string('first_name');
+            $table -> string('middle_name');
+            $table -> string('last_name');
+            $table -> string('personal_email');
+            $table -> integer('age');
+            $table -> date('birthdate');
+            $table -> string('gender');
+            $table -> integer('contact_number');
             $table -> timestamps();
         });
     }
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('student_accounts');
+        Schema::drop('admin_registers');
     }
 };

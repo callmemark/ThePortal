@@ -59,9 +59,9 @@
 				<input type='password' class='form-control' name='password' required>
 
 				<label class='form-label'>Account Type</label>
-				<select class="form-select" aria-label="account-type" name='role'>
+				<select class="form-select" aria-label="role" name='role'>
 					<option value='student' selected>Student</option>
-					<option value="admin">teacher</option>
+					<option value="teacher">teacher</option>
 					<option value="admin">Admin</option>
 				</select>
 

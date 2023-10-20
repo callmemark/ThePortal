@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EnrollRecord extends Model
+class StudentGrade extends Model
 {
     use HasFactory;
-    protected $table = 'enrollment_data';
 
     protected $fillable = [
-        'studentid',
-        'subjectid',
-        'grade'
+        'class_enrollment_id',
+        'grade',
+        'updated_by',
+        'updated_by_role',
     ];
 }
