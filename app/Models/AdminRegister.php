@@ -18,6 +18,5 @@ class AdminRegister extends Model
         'birthdate',
         'gender',
         'contact_number',
-
     ];
 }

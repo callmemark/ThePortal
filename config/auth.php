@@ -36,13 +36,6 @@ return [
     */
 
     'guards' => [
-        /**
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-        */
-
 
         'student' => [
             'driver' => 'session',
@@ -52,17 +45,14 @@ return [
             'driver' => 'session',
             'provider' => 'admin',
         ],
-
-        /**
-        'teacher' => [
+        'instructor' => [
             'driver' => 'session',
-            'provider' => 'teacher'        
+            'provider' => 'instructor'        
         ],
         'parent' => [
             'driver' => 'session',
             'provider' => 'parent'
         ]
-        */
 
     ],
 
@@ -84,36 +74,25 @@ return [
     */
 
     'providers' => [
-        /**
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\UserData::class,
-        ],
-        */
 
         'admin' => [
              'driver' => 'eloquent',
-             'model' => App\Models\UserData::class,
+             'model' => App\Models\AdminAccount::class,
         ],
         'student' => [
              'driver' => 'eloquent',
              'model' => App\Models\StudentAccount::class,
         ],
 
-        /**
-        'teacher' => [
+        'instructor' => [
             'driver' => 'eloquent',
-            'model' => App\Models\::
+            'model' => App\Models\InstructorAccount::class,
         ],
         'parent' => [
             'driver' => 'eloquent',
-            'model' => App\Models\
-        ]
-        */
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+            'model' => App\Models\ParentAccount::class,
+        ],
+
     ],
 
     /*
@@ -132,15 +111,6 @@ return [
     */
 
     'passwords' => [
-        /**
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
-        */
-
 
         'admin' => [
             'provider' => 'admin',
@@ -156,8 +126,8 @@ return [
             'throttle' => 60,
         ],
 
-        'teacher' => [
-            'provider' => 'teacher',
+        'instructor' => [
+            'provider' => 'instructor',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
