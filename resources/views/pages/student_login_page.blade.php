@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<p class="theme-header-3">Admin Login</p>
+			<p class="theme-header-3">Student Login</p>
 			@if($errors -> any())
 				<div class="error-display">
 					<h4>Error</h4>
@@ -23,7 +23,7 @@
 			@endif
 
 			<div class="theme-cardify">
-				<form action={{route('login.admin.login')}}  method="post">
+				<form action={{route('student.login.auth')}}  method="post">
 					@csrf
 					@method('post')
 

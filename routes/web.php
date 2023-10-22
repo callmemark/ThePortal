@@ -4,6 +4,13 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminRegisterController;
 use App\Http\Controllers\AdminAccountController;
+
+use App\Http\Controllers\StudentRegisterController;
+use App\Http\Controllers\StudentAccountController;
+
+use App\Http\Controllers\InstructorRegisterController;
+use App\Http\Controllers\InstructorAccountController;
+
 use App\Http\Controllers\LogOutController;
 
 
@@ -29,8 +36,44 @@ Route::controller(AdminAccountController::class) -> group(function(){
 });
 
 
+
+Route::controller(StudentRegisterController::class) -> group(function(){
+
+	Route::get('student/register/create', 'create') -> name('student.register.create');
+
+	Route::post('student/store', 'store') -> name('student.register.store');
+
+});
+
+Route::controller(StudentAccountController::class) -> group(function(){
+
+	Route::get('student/login/create', 'create') -> name('student.login.create');
+
+	Route::post('student/login/auth', 'login') -> name('student.login.auth');
+
+});
+
+
+Route::controller(InstructorRegisterController::class) -> group(function(){
+
+	Route::get('instructor/register/create', 'create') -> name('instructor.register.create');
+
+	Route::post('instructor/register/store', 'store') -> name('instructor.register.store');
+
+});
+
+
+Route::controller(InstructorAccountController::class) -> group(function(){
+
+	Route::get('instructor/login/create', 'create') -> name('instructor.login.create');
+
+	Route::post('instructor/login/auth', 'login') -> name('instructor.login.auth');
+
+});
+
+
 Route::controller(LogOutController::class) -> group(function(){
 
-	Route::post('user/logout', 'logout') -> name('lougout.user');
+	Route::post('user/logout/{role}', 'logout') -> name('lougout.user');
 
 });

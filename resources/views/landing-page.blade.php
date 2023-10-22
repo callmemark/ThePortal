@@ -38,7 +38,7 @@
 				<div class="card-cover-image">
 					
 				</div>
-				<form action="#" method="get">
+				<form action={{route('student.login.create')}} method="get">
 					@csrf 
 					@method('get')
 					
@@ -53,7 +53,7 @@
 				<div class="card-cover-image">
 					
 				</div>
-				<form action="#" method="get">
+				<form action={{route('instructor.login.create')}} method="get">
 					@csrf 
 					@method('get')
 					

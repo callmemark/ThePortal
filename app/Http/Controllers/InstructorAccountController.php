@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Models\AdminAccount;
+use App\Models\InstructorAccount;
 
-class AdminAccountController extends Controller
+
+class InstructorAccountController extends Controller
 {
-    public function create(){
-        return view('pages/admin_login_page');
+   public function create(){
+        return view('pages/instructor_login_page');
     }
 
     public function login(Request $request){
@@ -19,12 +20,13 @@ class AdminAccountController extends Controller
             'password' => 'string|required'
         ]);
 
-        if(Auth::guard('admin') -> attempt($validated_request)){
+        if(Auth::guard('instructor') -> attempt($validated_request)){
             $request -> session() -> regenerate();
 
             return redirect(route('admin.register.create'));
         }
 
-        return redirect(route('login.admim.create')) -> with('error', 'Check email and password');
+        // If Error
+        return redirect(route('instructor.login.create')) -> with('error', 'Check email and password');
     }
 }

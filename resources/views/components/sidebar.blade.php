@@ -16,6 +16,26 @@
 	}
 </style>
 
+<?php 
+	
+	switch(true){
+		case (auth() -> guard('admin') -> user() != null):
+			$role = auth() -> guard('admin') -> user() -> role;
+			break;
+		case (auth() -> guard('student') -> user() != null):
+			$role = auth() -> guard('student') -> user() -> role;
+			break;
+		case (auth() -> guard('parent') -> user() != null):
+			$role = auth() -> guard('parent') -> user() -> role;
+			break;
+		case (auth() -> guard('instructor') -> user() != null):
+			$role = auth() -> guard('instructor') -> user() -> role;
+			break;
+		default:
+			$role = 'standby';
+	}
+	
+?>
 
 <div id='sidebar'>
 
@@ -26,9 +46,7 @@
 		<span class='tab-name'>dashboard</span>
 	</button>
 
-
-
-	<form action={{route('lougout.user')}} method="post">
+	<form action={{route('lougout.user', ['role' => $role])}} method="post">
 		@csrf
 		@method('post')
 		
