@@ -11,7 +11,7 @@ use App\Models\InstructorAccount;
 class InstructorRegisterController extends Controller
 {
     public function create(){
-        return view('pages/instructor_register_page');
+        return view('pages/forms/instructor_register_page');
     }
 
 

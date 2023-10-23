@@ -11,7 +11,7 @@ use App\Models\StudentAccount;
 class StudentRegisterController extends Controller
 {
     public function create(){
-        return view('pages/student_register_page');
+        return view('pages/forms/student_register_page');
     }
 
 

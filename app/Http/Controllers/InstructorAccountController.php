@@ -11,7 +11,7 @@ use App\Models\InstructorAccount;
 class InstructorAccountController extends Controller
 {
    public function create(){
-        return view('pages/instructor_login_page');
+        return view('pages/forms/instructor_login_page');
     }
 
     public function login(Request $request){

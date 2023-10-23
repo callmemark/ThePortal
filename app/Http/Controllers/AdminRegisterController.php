@@ -13,7 +13,7 @@ class AdminRegisterController extends Controller
 {   
 
     public function create(){
-        return view('pages/admin_register_page');
+        return view('pages/forms/admin_register_page');
     }
 
     public function store(Request $request){

@@ -10,7 +10,7 @@ use App\Models\StudentAccount;
 class StudentAccountController extends Controller
 {
     public function create(){
-        return view('pages/student_login_page');
+        return view('pages/forms/student_login_page');
     }
 
     public function login(Request $request){

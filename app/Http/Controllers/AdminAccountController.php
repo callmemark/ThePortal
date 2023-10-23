@@ -10,7 +10,7 @@ use App\Models\AdminAccount;
 class AdminAccountController extends Controller
 {
     public function create(){
-        return view('pages/admin_login_page');
+        return view('pages/forms/admin_login_page');
     }
 
     public function login(Request $request){

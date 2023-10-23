@@ -16,6 +16,8 @@ use App\Http\Controllers\LogOutController;
 
 
 Route::view('/', 'landing-page');
+Route::view('student/manage/menu', 'pages/panel_menu/student_manager_menu') -> name('panel.menu.student.menu');
+
 
 
 Route::controller(AdminRegisterController::class) -> group(function(){
@@ -28,6 +30,7 @@ Route::controller(AdminRegisterController::class) -> group(function(){
 
 
 Route::controller(AdminAccountController::class) -> group(function(){
+	Route::view('admin/pages/dashboard', 'pages/dashboards/admin_dashboard') -> name('dashboard');
 
 	Route::get('login/admin', 'create') -> name('login.admim.create');
 
