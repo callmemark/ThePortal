@@ -2,6 +2,11 @@
 @include('themes/theme-initializer')
 @include('components/sidebar')
 
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ asset('css/content_panel.css') }}">
+<link rel="stylesheet" href={{ asset('css/classic_theme.css') }}>
+
+
 
 <!-- Add student Icon -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@64,400,0,0" />
@@ -21,70 +26,57 @@
 
 
 
-<div class="content-col">
+
+
+<div class="panel">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<p class="theme-header-3">Student Manager Menu</p>
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<div class="menu_icon_container d-flex justify-content-center">
+		@include('components/panel_header', ["header" => "Student Manager"])
 
-					<form class="theme-panel-menu" action={{route('dashboard')}} mehtod="get">
-						@csrf
-						@method('get')
-						<button type="submit" class='btn theme-menu-icons'>
-							<div class="theme-panel-menu-icon">
-								<span class="material-symbols-outlined material-icons theme-panel-icon-menu">
-									patient_list
-								</span>
-							</div>
-							<p class='theme-panel-menu-label'>Students List</p>
-						</button>
-					</form>
+		<div class="subpanel">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="menu_icon_container d-flex justify-content-center">
 
-					<form class="theme-panel-menu" action={{route('dashboard')}} mehtod="get">
-						@csrf
-						@method('get')
-						<button type="submit" class='btn theme-menu-icons'>
-							<div class="theme-panel-menu-icon">
-								<span class="material-symbols-outlined material-icons theme-panel-icon-menu">
-									group_add
-								</span>
-							</div>
-							<p class='theme-panel-menu-label'>Register New Student</p>
-						</button>
-					</form>
+						@include("components/panel_selection_menu", [
+							"destination" => "dashboard",
+							"material_icon_name" => "patient_list",
+							"btton_Name" => "Student List"
+							])
 
-					<form class="theme-panel-menu" action={{route('dashboard')}} mehtod="get">
-						@csrf
-						@method('get')
-						<button type="submit" class='btn theme-menu-icons'>
-							<div class="theme-panel-menu-icon">
-								<span class="material-symbols-outlined material-icons theme-panel-icon-menu">
-									history_edu
-								</span>
-							</div>
-							<p class='theme-panel-menu-label'>Enroll Student</p>
-						</button>
-					</form>
+						@include("components/panel_selection_menu", [
+							"destination" => "student.register.create",
+							"material_icon_name" => "group_add",
+							"btton_Name" => "Register New Student"
+							])
 
-					<form class="theme-panel-menu" action={{route('dashboard')}} mehtod="get">
-						@csrf
-						@method('get')
-						<button type="submit" class='btn theme-menu-icons'>
-							<div class="theme-panel-menu-icon">
-								<span class="material-symbols-outlined material-icons theme-panel-icon-menu">
-									credit_score
-								</span>
-							</div>
-							<p class='theme-panel-menu-label'>Update Grade</p>
-						</button>
-					</form>
+						@include("components/panel_selection_menu", [
+							"destination" => "dashboard",
+							"material_icon_name" => "history_edu",
+							"btton_Name" => "Enroll Student"
+							])
+
+						@include("components/panel_selection_menu", [
+							"destination" => "dashboard",
+							"material_icon_name" => "credit_score",
+							"btton_Name" => "Update Grade"
+							])
+
+					</div>
 				</div>
+
+
+				<div class="col-md-4">
+					<div class="theme-cardify">
+						<h5>Registered Student</h5>
+						<h6>5208</h6>
+					</div>
+					<div class="theme-cardify">
+						<h5>Enrolled Student</h5>
+						<h6>3208</h6>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>

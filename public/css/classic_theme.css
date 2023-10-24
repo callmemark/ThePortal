@@ -1,0 +1,122 @@
+
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
+
+
+.error-display{
+	width: 100%;
+	background-color: #ff0040;
+	color: #fff;
+	padding: 1rem 2rem;
+	font-weight: bold;
+}
+.success-display{
+	width: 100%;
+	background-color: #00d94c;
+	color: #fff;
+	padding: 1rem 2rem;
+	font-weight: bold;
+}
+
+
+
+.theme-cardify{
+	padding: 45px;
+	box-shadow: 0px 10px 15px -3px rgba(68, 0, 89, 0.1);
+	border-radius: 14px;
+}
+.theme-lift{
+	box-shadow: 0px 10px 15px -3px rgba(68, 0, 89, 0.1);
+}
+.theme-btn{
+	padding: 0.5rem 2rem;
+	font-size: 0.8rem;
+	font-weight: bold;
+	border: none;
+	border-radius: 8px;
+}
+.theme-btn-primary{
+	background-color: #006aff;
+	color: #fff;
+}
+
+.panel-topbar{
+	background-color: #fff;
+	padding: 10px 10px;
+	box-shadow: 0px 10px 15px -3px rgba(68, 0, 89, 0.04);
+}
+
+
+
+
+/** Headers */
+.theme-header{
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 1rem 0rem;
+	color: #8700b0;
+}
+
+.theme-header.header-sm{font-size: 1.2rem;}
+.theme-header.header-nm{font-size: 1.4rem;}
+.theme-header.header-md{font-size: 1.6rem;}
+.theme-header.header-lg{font-size: 1.8rem;}
+.theme-header.header-xl{font-size: 2rem;}
+
+
+
+
+/** Section Titles */
+.theme-section-title{
+	color: #8700b0;
+	font-size: 1.6rem;
+	font-weight: bold;
+	padding: 0rem 1rem;
+	border-left: 8px solid #8700b0;
+}
+.theme-section-title.title-lg{font-size: 1.6rem;}
+.theme-section-title.title-md{font-size: 1.4rem;}
+.theme-section-title.title-nm{font-size: 1rem;}
+
+
+
+.theme-icon-btn{
+	border: 1px solid grey;
+	background-color: rgba(0,0,0,0);
+	font-size: 7em;
+}
+
+
+.theme-labeled-btn{
+	border: none;
+	background-color: #fff;
+	padding: 5px;
+	width: 120px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	font-size: 0.8rem;
+}
+.theme-labeled-btn-icon{
+	padding: 1rem;
+	width: 100%;
+	height: 60px;
+	text-align: center;
+}
+.theme-labeled-btn:hover{
+	color: #8700b0;
+	box-shadow: 0px 10px 15px -3px rgba(68, 0, 89, 0.05);
+}
+.theme-labeled-btn-icon:hover{
+	color: #8700b0;
+}
+
+
+
+/** MAterial  Icons **/
+.material-icons.theme-panel-icon-menu { font-size: 40px }
+.material-icons.theme-panel-icon-user { font-size: 32px; color: #8700b0; }
+

@@ -2,14 +2,13 @@
 @include('themes/theme-initializer')
 @include('components/sidebar')
 
+<link rel="stylesheet" href="{{ asset('css/content_panel.css') }}">
+<link rel="stylesheet" href={{ asset('css/classic_theme.css') }}>
 
-<div class="content-col">
+
+<div class="panel">
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
-				<p class="theme-header-3">Admin Dashboard</p>
-			</div>
-		</div>
+		@include('components/panel_header', ["header" => "User Dashboard"])
 	</div>
 </div>	
 

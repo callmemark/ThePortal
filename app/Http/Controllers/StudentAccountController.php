@@ -21,6 +21,7 @@ class StudentAccountController extends Controller
 
         if(Auth::guard('student') -> attempt($validated_request)){
             $request -> session() -> regenerate();
+            session(['role' => 'student']);
 
             return redirect(route('admin.register.create'));
         }

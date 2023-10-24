@@ -1,0 +1,12 @@
+.panel{
+	margin-left: 80px;
+}
+.subpanel{
+	padding: 1rem 2rem;
+}
+
+@media only screen and (max-width: 800px){
+	.mobile-page{
+		margin-left: 70px;
+	}
+}

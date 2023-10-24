@@ -21,6 +21,8 @@ class AdminAccountController extends Controller
 
         if(Auth::guard('admin') -> attempt($validated_request)){
             $request -> session() -> regenerate();
+            session(['role' => 'admin']);
+            session(['user_data' => AdminAccount::find(auth()->guard('admin')->user()->admin_register_id) -> admin_register]);
 
             return redirect(route('admin.register.create'));
         }

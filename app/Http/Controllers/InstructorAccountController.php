@@ -22,6 +22,7 @@ class InstructorAccountController extends Controller
 
         if(Auth::guard('instructor') -> attempt($validated_request)){
             $request -> session() -> regenerate();
+            session(['role' => 'instructor']);
 
             return redirect(route('admin.register.create'));
         }

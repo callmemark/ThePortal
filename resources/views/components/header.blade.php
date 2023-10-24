@@ -21,16 +21,4 @@
 
 
 
-<style type="text/css">
-	.content-col{
-		margin-left: 100px;
-	}
-
-	@media only screen and (max-width: 800px){
-		.mobile-page{
-			margin-left: 70px;
-		}
-	}
-</style>
-
 
