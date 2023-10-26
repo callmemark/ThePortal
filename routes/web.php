@@ -16,7 +16,7 @@ use App\Http\Controllers\LogOutController;
 
 
 Route::view('/', 'landing-page');
-Route::view('student/manage/menu', 'pages/panel_menu/student_manager_menu') -> name('panel.menu.student.menu');
+Route::view('student/manage/menu', 'pages/panel_menu/student_manager/student_manager_panel') -> name('panel.menu.student.menu');
 
 
 

@@ -8,9 +8,10 @@
 <link rel="stylesheet" href={{ asset('css/classic_theme.css') }}>
 
 
+@include('components/panel_header', ["header" => "Student Manager"])
 <div class="panel">
 	<div class="container-fluid">
-		@include('components/panel_header', ["header" => "Student Manager"])
+		
 	</div>
 </div>
 

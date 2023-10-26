@@ -17,7 +17,7 @@
 <link rel="stylesheet" href={{ asset('css/side_navbar.css') }}>
 
 
-<div id='sidebar'>
+<div class='sidebar'>
 	<form action={{route('dashboard')}} mehtod="get">
 		@csrf
 		@method('get')

@@ -11,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,600;1,100;1,300;1,400;1,600&display=swap" rel="stylesheet">
 
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/1.2.1/hint.min.css" rel="stylesheet">
+  	<link href="https://cdnjs.cloudflare.com/ajax/libs/hint.css/1.2.1/hint.min.css" rel="stylesheet">
 
   
 
